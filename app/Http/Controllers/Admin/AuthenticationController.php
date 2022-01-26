@@ -38,6 +38,9 @@ class AuthenticationController extends Controller
 
     public function newUser()
     {
+        if(Auth::user()->cannot('User Management')) {
+            abort(404);
+        }
         $roles = Role::all();
         $users = User::all();
         return view('pages.newUser', compact('roles', 'users'));
@@ -45,6 +48,9 @@ class AuthenticationController extends Controller
 
     public function store(Request $request)
     {
+        if(Auth::user()->cannot('User Management')) {
+            abort(404);
+        }
         $request->validate([
             'name' => 'required|min:3',
             'email' => 'required|email',
