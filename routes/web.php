@@ -23,4 +23,8 @@ Route::post('/login', [AuthenticationController::class, 'authCheck'])->name('log
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', [DashboardController::class, 'index'])->name('home');
     Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
+
+    // create user
+    Route::get('/new/user', [AuthenticationController::class, 'newUser'])->name('new.user');
+    Route::post('/user', [AuthenticationController::class, 'store'])->name('user.store');
 });
