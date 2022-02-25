@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 
 class AuthenticationController extends Controller
@@ -63,6 +64,8 @@ class AuthenticationController extends Controller
         $user = User::create($data);
         if($user) {
             $user->assignRole($request->role_id);
+            Toastr::success('New user create Successful!', 'Success', ["positionClass" => "toast-top-right","closeButton" => true,
+            "progressBar" => true]);
             return back();
         }
         return back();
