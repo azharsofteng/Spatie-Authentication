@@ -6,7 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+<<<<<<< HEAD
         "brian2694/laravel-toastr": "^5.57",
+=======
+        "dyrynda/laravel-cascade-soft-deletes": "^4.2",
+>>>>>>> a808e1f086134ec04a093c290ef47101ddf96a33
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
